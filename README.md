@@ -1,5 +1,5 @@
 # Documentação
-Este case visa analisar os dados de arrecadação da empresa Avsystemgeo, identificando padrões e anomalias, e gerando insights valiosos para tomada de decisão. O objetivo principal é fornecer uma visão clara das diferentes categorias de arrecadação, detectando anomalias e exibindo as principais métricas por meio de dashboards visuais.
+Este case visa analisar os dados de arrecadação, identificando padrões e anomalias, e gerando insights valiosos para tomada de decisão. O objetivo principal é fornecer uma visão clara das diferentes categorias de arrecadação, detectando anomalias e exibindo as principais métricas por meio de dashboards visuais.
 
 ## Transformação e Limpeza de Dados
 1. Limpeza de Dados: Remoção de duplicatas, tratamento de valores nulos e ajuste dos tipos de dados (datas, números, textos).
