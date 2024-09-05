@@ -1,0 +1,34 @@
+library(ggplot2)
+library(dplyr)
+
+# dataset <- data.frame(Ano, Categoria, Valor)
+# dataset <- unique(dataset)
+
+total_arrecadado <- sum(dataset$Valor, na.rm = TRUE)
+
+dataset_summary <- dataset %>%
+  group_by(Categoria) %>%
+  summarise(Valor = sum(Valor, na.rm = TRUE)) %>%
+  arrange(desc(Valor)) %>%
+  mutate(
+    Contribuição = Valor / total_arrecadado * 100,
+    Cumulativo = cumsum(Contribuição)
+  )
+
+ggplot(dataset_summary, aes(x = reorder(Categoria, -Valor))) +
+  geom_col(aes(y = Valor, fill = Valor), color = "black") +
+  geom_line(aes(y = total_arrecadado * Cumulativo / 100, group = 1), color = "green", size = 1) +
+  geom_point(aes(y = total_arrecadado * Cumulativo / 100), color = "green", size = 2) +
+  scale_y_continuous(sec.axis = sec_axis(~ . / total_arrecadado * 100, name = "Porcentagem Acumulada (%)")) +
+  scale_fill_gradient(low = "lightgreen", high = "darkgreen") +
+  labs(
+    title = "Gráfico de Pareto - Contribuição Cumulativa por Categoria",
+    x = "Categoria",
+    y = "Valor",
+    fill = "Valor"
+  ) +
+  theme_light() +
+  theme(
+    axis.text.x = element_text(angle = 45, hjust = 1),
+    plot.title = element_text(hjust = 0.5)
+  )
