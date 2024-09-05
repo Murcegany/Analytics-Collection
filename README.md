@@ -141,7 +141,9 @@ ggplot(dataset_summary, aes(x = reorder(Categoria, -Valor))) +
 # Requisitos
 
 ## Power BI (versão desktop)
+- Utilzado a versão de desktop fornecida pela play store.
 ## Figma (versão web)
+- Utilizado a versão web padrão.
 ## R
 Pacotes Necessários:
 - ggplot2 (para visualizações gráficas)
